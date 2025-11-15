@@ -8,7 +8,12 @@ import glsl from "vite-plugin-glsl";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// For GitHub Pages, set base to repository name if deploying to a subdirectory
+// If deploying to a custom domain, use "/"
+const base = process.env.GITHUB_PAGES ? "/hex/" : "/";
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     runtimeErrorOverlay(),
